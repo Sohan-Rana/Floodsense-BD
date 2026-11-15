@@ -2,6 +2,7 @@
 
 **AI-powered flood forecasting and community early warning for Bangladesh.**
 *From Prediction to Protection.*
+### 🚀 [Live Demo](https://floodsense-bd-dqzkbgynfmmauz9smkfwjk.streamlit.app/)
 
 [![CI](https://github.com/Sohan-Rana/floodsense-bd/actions/workflows/ci.yml/badge.svg)](https://github.com/Sohan-Rana/floodsense-bd/actions)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
