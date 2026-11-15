@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+build/
+dist/
+
+# Trained models are regenerated with `python scripts/train.py`
+models/*.joblib
+models/*.json
+!models/.gitkeep
+
+# Raw downloaded data
+data/raw/
