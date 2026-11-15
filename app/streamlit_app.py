@@ -2,6 +2,12 @@
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+# Make the `src/` package importable on hosts (e.g. Streamlit Cloud) that do not install it.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
 import folium
 import pandas as pd
 import streamlit as st
