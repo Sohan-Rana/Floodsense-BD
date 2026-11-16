@@ -9,7 +9,6 @@
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-![FloodSense BD dashboard](docs/screenshot-dashboard.png)
 
 ## The problem
 
