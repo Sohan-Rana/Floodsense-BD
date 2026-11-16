@@ -2,13 +2,43 @@
 
 **AI-powered flood forecasting and community early warning for Bangladesh.**
 *From Prediction to Protection.*
+
 ### 🚀 [Live Demo](https://floodsense-bd-dqzkbgynfmmauz9smkfwjk.streamlit.app/)
 
-[![CI](https://github.com/Sohan-Rana/floodsense-bd/actions/workflows/ci.yml/badge.svg)](https://github.com/Sohan-Rana/floodsense-bd/actions)
+[![CI](https://github.com/Sohan-Rana/Floodsense-BD/actions/workflows/ci.yml/badge.svg)](https://github.com/Sohan-Rana/Floodsense-BD/actions)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-FloodSense BD combines rainfall, river level, soil wetness and terrain data with machine learning to estimate **where** flooding is likely, **when** (next 24–72 hours) and **how severe** the impact could be, then turns the result into plain-language **Bangla early warnings** for vulnerable communities.
+![FloodSense BD dashboard](docs/screenshot-dashboard.png)
+
+## The problem
+
+Bangladesh is among the most flood-prone countries in the world. Official forecasts exist, but they are technical and rarely reach vulnerable households in plain Bangla with clear actions to take.
+
+## What FloodSense BD does
+
+FloodSense BD combines rainfall, river level, soil wetness and terrain data with machine learning to estimate **where** flooding is likely, **when** (next 48 hours) and **how severe** the impact could be. It then turns the result into plain-language **Bangla and English early warnings** for vulnerable communities.
+
+- **Recall-first:** the alert threshold is 0.35, because a missed flood costs more than a false alarm.
+- **Honest by design:** the bundled model is trained on synthetic data and is clearly labelled as such (see [limitations](#data-and-honest-limitations)).
+- **Open and modular:** data, model, risk and alert layers can each be replaced independently.
+
+## Who it is for
+
+- Vulnerable households and farmers in flood-prone districts
+- Local disaster-management committees
+- NGOs planning pre-positioning and relief
+- Later: telecom operators (SMS delivery) and agricultural insurers
+
+## Results (pilot, synthetic data)
+
+| Metric | Value |
+|---|---|
+| Precision | _fill from `floodsense train`_ |
+| Recall | _fill from `floodsense train`_ |
+| ROC-AUC | _fill from `floodsense train`_ |
+
+> These numbers come from synthetic data and do **not** describe real-world accuracy. Validation on real FFWC / Sentinel-1 data is the next milestone.
 
 > **Not a replacement for official forecasts.** FloodSense BD is a decision-support layer that connects scientific forecasting, geospatial risk visualisation, localised impact intelligence and community-friendly alerts. Always follow warnings from the Flood Forecasting and Warning Centre (FFWC) and local authorities.
 
@@ -37,7 +67,7 @@ ML engine            Flood probability · risk scoring · evaluation
       │
 FloodSense platform  Interactive map · dashboard · Bangla alerts
       │
-Community impact    Preparedness · resilience · informed decisions
+Community impact     Preparedness · resilience · informed decisions
 ```
 
 More detail in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
@@ -45,8 +75,8 @@ More detail in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 ## Quick start
 
 ```bash
-git clone https://github.com/Sohan-Rana/floodsense-bd.git
-cd floodsense-bd
+git clone https://github.com/Sohan-Rana/Floodsense-BD.git
+cd Floodsense-BD
 
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
@@ -81,7 +111,7 @@ print(p.alert_bn)
 ## Project structure
 
 ```
-floodsense-bd/
+Floodsense-BD/
 ├── app/streamlit_app.py     # dashboard (map, table, alerts)
 ├── src/floodsense/
 │   ├── config.py            # pilot districts, thresholds
@@ -124,6 +154,14 @@ To get real results, supply a DataFrame with the same columns (see `features.py`
 | River levels | FFWC / BWDB |
 | Flood extent labels | Sentinel-1 SAR, Global Flood Database |
 | Terrain | SRTM / Copernicus DEM |
+
+## Responsible AI
+
+- Positioned as a complement to official FFWC/BWDB warnings, never a replacement.
+- Recall-first threshold, with probability calibration and uncertainty bands planned.
+- Synthetic data and illustrative district attributes are disclosed everywhere they appear.
+- Planned per-district performance checks so no region is systematically under-warned.
+- Only public environmental data is used. No personal data is collected.
 
 ## Roadmap
 
